@@ -8,7 +8,6 @@ import java.util.List;
 
 public class ExitGate {
 
-    CostComputationFactory costComputationFactory;
     CostComputation costComputation;
     List<ParkingSpot> parkingSpotList;
     //payment object
@@ -16,13 +15,12 @@ public class ExitGate {
     public ExitGate(List<ParkingSpot> parkingSpotList)
     {
         this.parkingSpotList = parkingSpotList;
-        costComputationFactory = new CostComputationFactory();
     }
 
     //calculate Price from cost computation factory
     public float CalculateParkingFees(Ticket ticket)
     {
-        costComputation = costComputationFactory.GetCostComputationObject(ticket.getVehicle().getVehicleType());
+        costComputation = CostComputationFactory.GetCostComputationObject(ticket.getVehicle().getVehicleType());
         return costComputation.CalculateParkingFees(ticket);
     }
 

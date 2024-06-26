@@ -6,7 +6,7 @@ import com.parkinglot.PricingStrategyClass.PricingStrategy;
 
 public class CostComputationFactory {
 
-    public CostComputation GetCostComputationObject(VehicleType vehicleType)
+    public static CostComputation GetCostComputationObject(VehicleType vehicleType)
     {
         if(vehicleType.equals(VehicleType.TWO_WHEELER))
             return new TwoWheelerCostComputation();
